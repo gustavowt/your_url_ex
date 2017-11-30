@@ -2,9 +2,6 @@ defmodule UrlShortner.ShortnerService do
   alias UrlShortner.Url
   alias UrlShortner.Repo
   alias UUID
-  alias Ecto.Changeset
-
-  @salt 2976
 
   def create_short_url(url_params) do
     uuid = generate_salted_id()
