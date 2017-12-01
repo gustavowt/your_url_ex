@@ -10,7 +10,7 @@ defmodule UrlShortner.UrlView do
   end
 
   def render("url.json", %{url: url}) do
-    %{id: url.id,
+    %{clicks: url.clicks,
       original_url: url.original_url,
       short_url: "http://short_url/#{url.url_hash}"}
   end

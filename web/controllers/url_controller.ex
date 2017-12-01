@@ -25,8 +25,8 @@ defmodule UrlShortner.UrlController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
-    url = Repo.get!(Url, id)
+  def show(conn, %{"id" => url_hash}) do
+    url = Repo.get_by!(Url, url_hash: url_hash)
     render(conn, "show.json", url: url)
   end
 
