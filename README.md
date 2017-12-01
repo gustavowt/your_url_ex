@@ -11,6 +11,18 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
 
+## Shortening a url
+```bash
+$ curl -H "Content-Type: application/json" -X POST -d '{"url": {"original_url":"http://google.com"}}' http://localhost:4000/api/urls                                                       11:06:05
+{"data":{"short_url":"http://short_url/4771adae6f3","original_url":"http://google.com"}}
+```
+
+## Retrieving url information
+```bash
+guga [~/e/url_shortner] 2.0.0p648 (master) $ curl -H "Content-Type: application/json" -X GET http://localhost:4000/api/urls/4771adae6f3                                                                                               11:09:33
+{"data":{"short_url":"http://short_url/4771adae6f3","original_url":"http://google.com","clicks":4}}
+```
+
 ## Learn more
 
   * Official website: http://www.phoenixframework.org/
