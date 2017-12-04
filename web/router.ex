@@ -22,7 +22,7 @@ defmodule UrlShortner.Router do
   scope "/api", UrlShortner do
     pipe_through :api
 
-    resources "/urls", UrlController
+    resources "/urls", UrlController, except: [:edit, :update]
   end
 
   # Other scopes may use custom stacks.

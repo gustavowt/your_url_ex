@@ -30,22 +30,8 @@ defmodule UrlShortner.UrlController do
     render(conn, "show.json", url: url)
   end
 
-  def update(conn, %{"id" => id, "url" => url_params}) do
-    url = Repo.get!(Url, id)
-    changeset = Url.changeset(url, url_params)
-
-    case Repo.update(changeset) do
-      {:ok, url} ->
-        render(conn, "show.json", url: url)
-      {:error, changeset} ->
-        conn
-        |> put_status(:unprocessable_entity)
-        |> render(UrlShortner.ChangesetView, "error.json", changeset: changeset)
-    end
-  end
-
-  def delete(conn, %{"id" => id}) do
-    url = Repo.get!(Url, id)
+  def delete(conn, %{"id" => url_hash}) do
+    url = Repo.get_by!(Url, url_hash: url_hash)
 
     # Here we use delete! (with a bang) because we expect
     # it to always work (and if it does not, it will raise).
