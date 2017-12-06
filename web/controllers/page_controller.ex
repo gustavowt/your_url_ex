@@ -3,6 +3,8 @@ defmodule UrlShortner.PageController do
 
   alias UrlShortner.Url
 
+  alias UrlShortner.UrlParserService
+
   def show(conn, %{ "id" => url_hash }) do
     url = Repo.get_by!(Url, url_hash: url_hash)
     clicks = url.clicks + 1
@@ -11,8 +13,10 @@ defmodule UrlShortner.PageController do
 
     case Repo.update(changeset) do
       {:ok, url} ->
+        url_parsed = UrlShortner.UrlParserService.parse_url(url.original_url)
+
         conn
-        |> redirect(external: url.original_url)
+        |> redirect(external: url_parsed)
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
