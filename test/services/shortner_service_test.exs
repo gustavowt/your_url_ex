@@ -1,9 +1,6 @@
 defmodule UrlShortner.ShortnerServiceTest do
   use UrlShortner.ConnCase
 
-  alias UrlShortner.Url
-  alias UrlShortner.ShortnerService
-
   test "#create_short_url, create a new url entry" do
     params = %{ "original_url" => "http://www.pudim.com.br" }
 
