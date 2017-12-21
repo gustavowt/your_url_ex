@@ -19,7 +19,7 @@ defmodule UrlShortner.Mixfile do
   def application do
     [mod: {UrlShortner, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :exq]]
   end
 
   # Specifies which paths to compile per environment.
@@ -38,7 +38,8 @@ defmodule UrlShortner.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:uuid, "~> 1.1" }]
+     {:uuid, "~> 1.1" },
+     {:exq, "~> 0.9.1"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

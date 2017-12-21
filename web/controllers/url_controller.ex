@@ -1,7 +1,6 @@
 defmodule UrlShortner.UrlController do
   use UrlShortner.Web, :controller
   alias UrlShortner.ShortnerService
-
   alias UrlShortner.Url
 
   def index(conn, _params) do
