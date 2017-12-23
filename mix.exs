@@ -39,7 +39,9 @@ defmodule UrlShortner.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:uuid, "~> 1.1" },
-     {:exq, "~> 0.9.1"}]
+     {:exq, "~> 0.9.1"},
+     {:redix, ">= 0.0.0"}
+    ]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

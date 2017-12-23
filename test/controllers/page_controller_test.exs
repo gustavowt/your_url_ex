@@ -9,8 +9,6 @@ defmodule UrlShortner.PageControllerTest do
     conn = get conn, "/#{url.url_hash}"
 
     assert redirected_to(conn) ==  "http://yahoo.com"
-
-    assert Repo.get(Url, url.id).clicks == 21
   end
 
   test 'GET /:id redirect even incomplete url', %{conn: conn} do
@@ -19,8 +17,6 @@ defmodule UrlShortner.PageControllerTest do
     conn = get conn, "/#{url.url_hash}"
 
     assert redirected_to(conn) ==  "http://yahoo.com"
-
-    assert Repo.get(Url, url.id).clicks == 21
   end
 
   test 'GET /:id renders page not found when id is not found', %{conn: conn} do
