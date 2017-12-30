@@ -40,7 +40,8 @@ defmodule UrlShortner.Mixfile do
      {:cowboy, "~> 1.0"},
      {:uuid, "~> 1.1" },
      {:exq, "~> 0.9.1"},
-     {:redix, ">= 0.0.0"}
+     {:redix, ">= 0.0.0"},
+     {:browser, ">= 0.4.1"}
     ]
   end
 
