@@ -1,4 +1,4 @@
-defmodule UrlShortner.UrlScrapperWorker do
+defmodule UrlShortner.UrlScraperWorker do
   alias UrlShortner.Url
   alias UrlShortner.Repo
 
