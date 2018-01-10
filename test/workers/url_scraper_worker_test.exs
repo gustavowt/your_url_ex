@@ -1,4 +1,4 @@
-defmodule UrlShortner.UrlScrapperWorkerTest do
+defmodule UrlShortner.UrlScraperWorkerTest do
   use UrlShortner.ConnCase, async: false
   alias UrlShortner.Url
   alias UrlShortner.Repo
@@ -8,7 +8,7 @@ defmodule UrlShortner.UrlScrapperWorkerTest do
   test "#perfom, increment url info" do
     url = Repo.insert!(@valid_attrs)
 
-    {:ok, updated_url } = UrlShortner.UrlScrapperWorker.perform(url.url_hash)
+    { :ok, updated_url } = UrlShortner.UrlScraperWorker.perform(url.url_hash)
 
     assert 3 == updated_url.clicks
   end
