@@ -6,6 +6,8 @@ defmodule UrlShortner.Url do
     field :url_hash, :string
     field :clicks, :integer
 
+    has_many :click_histories, UrlShortner.ClickHistory
+
     timestamps()
   end
 

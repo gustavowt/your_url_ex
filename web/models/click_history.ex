@@ -3,7 +3,7 @@ defmodule UrlShortner.ClickHistory do
 
   schema "click_histories" do
     field :platform, :string
-    field :brownser_name, :string
+    field :browser_name, :string
     field :browser_version, :string
     field :device, :string
 
@@ -17,7 +17,7 @@ defmodule UrlShortner.ClickHistory do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:platform, :brownser_name, :browser_version, :device, :url_id])
+    |> cast(params, [:platform, :browser_name, :browser_version, :device, :url_id])
     |> validate_required([:url_id])
   end
 end

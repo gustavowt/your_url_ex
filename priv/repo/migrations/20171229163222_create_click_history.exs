@@ -4,7 +4,7 @@ defmodule UrlShortner.Repo.Migrations.CreateClickHistory do
   def change do
     create table(:click_histories) do
       add :platform, :string
-      add :brownser_name, :string
+      add :browser_name, :string
       add :browser_version, :string
       add :device, :string
 
