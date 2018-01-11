@@ -1,9 +1,9 @@
-defmodule UrlShortner.PageController do
-  use UrlShortner.Web, :controller
+defmodule YourUrlEx.PageController do
+  use YourUrlEx.Web, :controller
 
-  alias UrlShortner.Url
-  alias UrlShortner.UrlParserService
-  alias UrlShortner.UrlCollectorService
+  alias YourUrlEx.Url
+  alias YourUrlEx.UrlParserService
+  alias YourUrlEx.UrlCollectorService
   alias Browser
 
   require Exq
@@ -14,7 +14,7 @@ defmodule UrlShortner.PageController do
     if url do
       scratch_url(url_hash)
       collect_connection_info(conn, url_hash)
-      url_parsed = UrlShortner.UrlParserService.parse_url(url)
+      url_parsed = YourUrlEx.UrlParserService.parse_url(url)
 
       conn
       |> redirect(external: url_parsed)
@@ -30,7 +30,7 @@ defmodule UrlShortner.PageController do
     platform = Browser.full_platform_name(conn)
     device = Browser.device_type(conn) |> Atom.to_string
 
-    Exq.enqueue(Exq, "default", UrlShortner.ClickHistoryCreatorWorker, [url_hash,
+    Exq.enqueue(Exq, "default", YourUrlEx.ClickHistoryCreatorWorker, [url_hash,
                                                                         platform,
                                                                         browser_name,
                                                                         browser_version,
@@ -38,6 +38,6 @@ defmodule UrlShortner.PageController do
   end
 
   defp scratch_url(url_hash) do
-    Exq.enqueue(Exq, "default", UrlShortner.UrlScraperWorker, [url_hash])
+    Exq.enqueue(Exq, "default", YourUrlEx.UrlScraperWorker, [url_hash])
   end
 end

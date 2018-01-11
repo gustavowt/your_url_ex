@@ -1,4 +1,4 @@
-defmodule UrlShortner.CacheService do
+defmodule YourUrlEx.CacheService do
   alias Redix
 
   def get(key) do

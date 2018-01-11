@@ -1,12 +1,12 @@
-defmodule UrlShortner.Url do
-  use UrlShortner.Web, :model
+defmodule YourUrlEx.Url do
+  use YourUrlEx.Web, :model
 
   schema "urls" do
     field :original_url, :string
     field :url_hash, :string
     field :clicks, :integer
 
-    has_many :click_histories, UrlShortner.ClickHistory
+    has_many :click_histories, YourUrlEx.ClickHistory
 
     timestamps()
   end

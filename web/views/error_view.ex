@@ -1,5 +1,5 @@
-defmodule UrlShortner.ErrorView do
-  use UrlShortner.Web, :view
+defmodule YourUrlEx.ErrorView do
+  use YourUrlEx.Web, :view
 
   def render("404.html", _assigns) do
     "Page not found"

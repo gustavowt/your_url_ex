@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
-config :url_shortner, UrlShortner.Endpoint,
+config :your_url_ex, YourUrlEx.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -16,7 +16,7 @@ config :url_shortner, UrlShortner.Endpoint,
 
 
 # Watch static and templates for browser reloading.
-config :url_shortner, UrlShortner.Endpoint,
+config :your_url_ex, YourUrlEx.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
@@ -34,9 +34,9 @@ config :logger, :console, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
-config :url_shortner, UrlShortner.Repo,
+config :your_url_ex, YourUrlEx.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "guga",
-  database: "url_shortner_dev",
+  database: "your_url_ex_dev",
   hostname: "localhost",
   pool_size: 10

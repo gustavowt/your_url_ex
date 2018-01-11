@@ -1,7 +1,7 @@
-defmodule UrlShortner.CacheServiceTest do
+defmodule YourUrlEx.CacheServiceTest do
   use ExUnit.Case, async: true
 
-  alias UrlShortner.CacheService
+  alias YourUrlEx.CacheService
 
   test "#get, should get a cache provider value" do
     Redix.command(connection(), ["SET", "foo", "bar"])

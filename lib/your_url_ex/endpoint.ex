@@ -1,14 +1,14 @@
-defmodule UrlShortner.Endpoint do
-  use Phoenix.Endpoint, otp_app: :url_shortner
+defmodule YourUrlEx.Endpoint do
+  use Phoenix.Endpoint, otp_app: :your_url_ex
 
-  socket "/socket", UrlShortner.UserSocket
+  socket "/socket", YourUrlEx.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :url_shortner, gzip: false,
+    at: "/", from: :your_url_ex, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
@@ -35,8 +35,8 @@ defmodule UrlShortner.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
-    key: "_url_shortner_key",
+    key: "_your_url_ex_key",
     signing_salt: "GIDAVmgz"
 
-  plug UrlShortner.Router
+  plug YourUrlEx.Router
 end

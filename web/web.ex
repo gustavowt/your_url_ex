@@ -1,12 +1,12 @@
-defmodule UrlShortner.Web do
+defmodule YourUrlEx.Web do
   @moduledoc """
   A module that keeps using definitions for controllers,
   views and so on.
 
   This can be used in your application as:
 
-      use UrlShortner.Web, :controller
-      use UrlShortner.Web, :view
+      use YourUrlEx.Web, :controller
+      use YourUrlEx.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -30,12 +30,12 @@ defmodule UrlShortner.Web do
     quote do
       use Phoenix.Controller
 
-      alias UrlShortner.Repo
+      alias YourUrlEx.Repo
       import Ecto
       import Ecto.Query
 
-      import UrlShortner.Router.Helpers
-      import UrlShortner.Gettext
+      import YourUrlEx.Router.Helpers
+      import YourUrlEx.Gettext
     end
   end
 
@@ -49,9 +49,9 @@ defmodule UrlShortner.Web do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import UrlShortner.Router.Helpers
-      import UrlShortner.ErrorHelpers
-      import UrlShortner.Gettext
+      import YourUrlEx.Router.Helpers
+      import YourUrlEx.ErrorHelpers
+      import YourUrlEx.Gettext
     end
   end
 
@@ -65,10 +65,10 @@ defmodule UrlShortner.Web do
     quote do
       use Phoenix.Channel
 
-      alias UrlShortner.Repo
+      alias YourUrlEx.Repo
       import Ecto
       import Ecto.Query
-      import UrlShortner.Gettext
+      import YourUrlEx.Gettext
     end
   end
 

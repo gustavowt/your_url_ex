@@ -1,3 +1,3 @@
 ExUnit.start
 
-Ecto.Adapters.SQL.Sandbox.mode(UrlShortner.Repo, {:shared, self()})
+Ecto.Adapters.SQL.Sandbox.mode(YourUrlEx.Repo, {:shared, self()})

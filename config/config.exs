@@ -6,15 +6,15 @@
 use Mix.Config
 
 # General application configuration
-config :url_shortner,
-  ecto_repos: [UrlShortner.Repo]
+config :your_url_ex,
+  ecto_repos: [YourUrlEx.Repo]
 
 # Configures the endpoint
-config :url_shortner, UrlShortner.Endpoint,
+config :your_url_ex, YourUrlEx.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "nXHQMEc3s5kq7ip+Jnpxc/ZbW6TM5H7vGof4miXVvBvf0e+vj1AfNx7SeQ5nfVIn",
-  render_errors: [view: UrlShortner.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: UrlShortner.PubSub,
+  render_errors: [view: YourUrlEx.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: YourUrlEx.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger

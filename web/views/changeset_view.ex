@@ -1,11 +1,11 @@
-defmodule UrlShortner.ChangesetView do
-  use UrlShortner.Web, :view
+defmodule YourUrlEx.ChangesetView do
+  use YourUrlEx.Web, :view
 
   @doc """
   Traverses and translates changeset errors.
 
   See `Ecto.Changeset.traverse_errors/2` and
-  `UrlShortner.ErrorHelpers.translate_error/1` for more details.
+  `YourUrlEx.ErrorHelpers.translate_error/1` for more details.
   """
   def translate_errors(changeset) do
     Ecto.Changeset.traverse_errors(changeset, &translate_error/1)

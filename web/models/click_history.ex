@@ -1,5 +1,5 @@
-defmodule UrlShortner.ClickHistory do
-  use UrlShortner.Web, :model
+defmodule YourUrlEx.ClickHistory do
+  use YourUrlEx.Web, :model
 
   schema "click_histories" do
     field :platform, :string
@@ -7,7 +7,7 @@ defmodule UrlShortner.ClickHistory do
     field :browser_version, :string
     field :device, :string
 
-    belongs_to :url, UrlShortner.Url
+    belongs_to :url, YourUrlEx.Url
 
     timestamps()
   end

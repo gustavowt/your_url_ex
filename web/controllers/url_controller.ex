@@ -1,7 +1,7 @@
-defmodule UrlShortner.UrlController do
-  use UrlShortner.Web, :controller
-  alias UrlShortner.ShortnerService
-  alias UrlShortner.Url
+defmodule YourUrlEx.UrlController do
+  use YourUrlEx.Web, :controller
+  alias YourUrlEx.ShortnerService
+  alias YourUrlEx.Url
 
   def index(conn, _params) do
     urls = Repo.all(Url)
@@ -9,7 +9,7 @@ defmodule UrlShortner.UrlController do
   end
 
   def create(conn, %{"url" => url_params}) do
-    result = UrlShortner.ShortnerService.create_short_url(url_params)
+    result = YourUrlEx.ShortnerService.create_short_url(url_params)
 
     case result do
       {:ok, url} ->
@@ -20,7 +20,7 @@ defmodule UrlShortner.UrlController do
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(UrlShortner.ChangesetView, "error.json", changeset: changeset)
+        |> render(YourUrlEx.ChangesetView, "error.json", changeset: changeset)
     end
   end
 

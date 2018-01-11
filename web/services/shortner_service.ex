@@ -1,9 +1,9 @@
-defmodule UrlShortner.ShortnerService do
-  alias UrlShortner.Url
-  alias UrlShortner.Repo
+defmodule YourUrlEx.ShortnerService do
+  alias YourUrlEx.Url
+  alias YourUrlEx.Repo
   alias UUID
 
-  alias UrlShortner.CacheService
+  alias YourUrlEx.CacheService
 
   def create_short_url(url_params) do
 

@@ -1,4 +1,4 @@
-defmodule UrlShortner.Repo.Migrations.CreateUrl do
+defmodule YourUrlEx.Repo.Migrations.CreateUrl do
   use Ecto.Migration
 
   def change do

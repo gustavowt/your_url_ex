@@ -1,3 +1,3 @@
-defmodule UrlShortner.PageView do
-  use UrlShortner.Web, :view
+defmodule YourUrlEx.PageView do
+  use YourUrlEx.Web, :view
 end

@@ -1,7 +1,7 @@
-defmodule UrlShortner.UrlTest do
-  use UrlShortner.ModelCase
+defmodule YourUrlEx.UrlTest do
+  use YourUrlEx.ModelCase
 
-  alias UrlShortner.Url
+  alias YourUrlEx.Url
 
   @valid_attrs %{ original_url: "yahoo.com", url_hash: "AABBCC", clicks: 0 }
   @invalid_attrs %{original_url: "yahoo.com"}

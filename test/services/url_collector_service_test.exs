@@ -1,9 +1,9 @@
-defmodule UrlShortner.UrlCollectorServiceTest do
-  use UrlShortner.ConnCase
-  alias UrlShortner.UrlCollectorService
-  alias UrlShortner.CacheService
-  alias UrlShortner.Repo
-  alias UrlShortner.Url
+defmodule YourUrlEx.UrlCollectorServiceTest do
+  use YourUrlEx.ConnCase
+  alias YourUrlEx.UrlCollectorService
+  alias YourUrlEx.CacheService
+  alias YourUrlEx.Repo
+  alias YourUrlEx.Url
 
   test "#get_url, should load Url from cache" do
     CacheService.set("AABBCC", "http://pudim.com")

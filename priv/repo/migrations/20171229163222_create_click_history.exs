@@ -1,4 +1,4 @@
-defmodule UrlShortner.Repo.Migrations.CreateClickHistory do
+defmodule YourUrlEx.Repo.Migrations.CreateClickHistory do
   use Ecto.Migration
 
   def change do

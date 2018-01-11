@@ -1,3 +1,3 @@
-defmodule UrlShortner.LayoutViewTest do
-  use UrlShortner.ConnCase, async: true
+defmodule YourUrlEx.LayoutViewTest do
+  use YourUrlEx.ConnCase, async: true
 end

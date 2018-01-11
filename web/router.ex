@@ -1,5 +1,5 @@
-defmodule UrlShortner.Router do
-  use UrlShortner.Web, :router
+defmodule YourUrlEx.Router do
+  use YourUrlEx.Web, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,20 +13,20 @@ defmodule UrlShortner.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", UrlShortner do
+  scope "/", YourUrlEx do
     pipe_through :browser # Use the default browser stack
 
     get "/:id", PageController, :show
   end
 
-  scope "/api", UrlShortner do
+  scope "/api", YourUrlEx do
     pipe_through :api
 
     resources "/urls", UrlController, except: [:edit, :update]
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", UrlShortner do
+  # scope "/api", YourUrlEx do
   #   pipe_through :api
   # end
 end

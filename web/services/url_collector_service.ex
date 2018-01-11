@@ -1,7 +1,7 @@
-defmodule UrlShortner.UrlCollectorService do
-  alias UrlShortner.Url
-  alias UrlShortner.CacheService
-  alias UrlShortner.Repo
+defmodule YourUrlEx.UrlCollectorService do
+  alias YourUrlEx.Url
+  alias YourUrlEx.CacheService
+  alias YourUrlEx.Repo
 
   def get_url(url_hash) do
     url_cached = get_cached_url(url_hash)

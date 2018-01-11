@@ -1,4 +1,4 @@
-defmodule UrlShortner.UrlParserService do
+defmodule YourUrlEx.UrlParserService do
   require URI
 
   def parse_url(url) do

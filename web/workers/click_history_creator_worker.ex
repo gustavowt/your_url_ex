@@ -1,7 +1,7 @@
-defmodule UrlShortner.ClickHistoryCreatorWorker do
-  alias UrlShortner.ClickHistory
-  alias UrlShortner.Repo
-  alias UrlShortner.Url
+defmodule YourUrlEx.ClickHistoryCreatorWorker do
+  alias YourUrlEx.ClickHistory
+  alias YourUrlEx.Repo
+  alias YourUrlEx.Url
 
   require Logger
 

@@ -1,7 +1,7 @@
-defmodule UrlShortner.UrlControllerTest do
-  use UrlShortner.ConnCase
+defmodule YourUrlEx.UrlControllerTest do
+  use YourUrlEx.ConnCase
 
-  alias UrlShortner.Url
+  alias YourUrlEx.Url
   @valid_attrs %{ original_url: "http://google.com" }
   @invalid_attrs %{ original_url: nil }
 
@@ -21,7 +21,7 @@ defmodule UrlShortner.UrlControllerTest do
     assert json_response(conn, 200)["data"] == %{
       "clicks" => url.clicks,
       "original_url" => url.original_url,
-      "short_url" => "#{UrlShortner.Endpoint.url}/#{url.url_hash}"}
+      "short_url" => "#{YourUrlEx.Endpoint.url}/#{url.url_hash}"}
   end
 
   test "renders page not found when id is nonexistent", %{conn: conn} do

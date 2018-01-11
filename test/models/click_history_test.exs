@@ -1,7 +1,7 @@
-defmodule UrlShortner.ClickHistoryTest do
-  use UrlShortner.ModelCase
+defmodule YourUrlEx.ClickHistoryTest do
+  use YourUrlEx.ModelCase
 
-  alias UrlShortner.ClickHistory
+  alias YourUrlEx.ClickHistory
 
   @valid_attrs %{brownser_name: "Firfox", browser_version: "5.0.0", device: "some content", platform: "some content", url_id: 1}
   @invalid_attrs %{brownser_name: "Firfox", browser_version: "5.0.0", device: "some content", platform: "some content"}

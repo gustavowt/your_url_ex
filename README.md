@@ -1,4 +1,4 @@
-# UrlShortner
+# YourUrlEx
 
 To start your Phoenix app:
 

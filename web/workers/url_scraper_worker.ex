@@ -1,6 +1,6 @@
-defmodule UrlShortner.UrlScraperWorker do
-  alias UrlShortner.Url
-  alias UrlShortner.Repo
+defmodule YourUrlEx.UrlScraperWorker do
+  alias YourUrlEx.Url
+  alias YourUrlEx.Repo
 
   def perform(url_hash) do
     url = Repo.get_by(Url, url_hash: url_hash)

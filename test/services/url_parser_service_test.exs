@@ -1,7 +1,7 @@
-defmodule UrlShortner.UrlParserServiceTest do
+defmodule YourUrlEx.UrlParserServiceTest do
   use ExUnit.Case, async: true
 
-  alias UrlShortner.UrlParserService
+  alias YourUrlEx.UrlParserService
 
   test "#parse_url, should parse url with scheme" do
     assert UrlParserService.parse_url("http://yahoo.com") == "http://yahoo.com"

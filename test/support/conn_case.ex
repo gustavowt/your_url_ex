@@ -1,4 +1,4 @@
-defmodule UrlShortner.ConnCase do
+defmodule YourUrlEx.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -20,23 +20,23 @@ defmodule UrlShortner.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
 
-      alias UrlShortner.Repo
+      alias YourUrlEx.Repo
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
 
-      import UrlShortner.Router.Helpers
+      import YourUrlEx.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint UrlShortner.Endpoint
+      @endpoint YourUrlEx.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(UrlShortner.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(YourUrlEx.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(UrlShortner.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(YourUrlEx.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

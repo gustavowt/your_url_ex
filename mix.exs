@@ -1,8 +1,8 @@
-defmodule UrlShortner.Mixfile do
+defmodule YourUrlEx.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :url_shortner,
+    [app: :your_url_ex,
      version: "0.0.1",
      elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),
@@ -17,7 +17,7 @@ defmodule UrlShortner.Mixfile do
   #
   # Type `mix help compile.app` for more information.
   def application do
-    [mod: {UrlShortner, []},
+    [mod: {YourUrlEx, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
                     :phoenix_ecto, :postgrex, :exq]]
   end

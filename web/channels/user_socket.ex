@@ -1,8 +1,8 @@
-defmodule UrlShortner.UserSocket do
+defmodule YourUrlEx.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", UrlShortner.RoomChannel
+  # channel "room:*", YourUrlEx.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
@@ -30,7 +30,7 @@ defmodule UrlShortner.UserSocket do
   # Would allow you to broadcast a "disconnect" event and terminate
   # all active sockets and channels for a given user:
   #
-  #     UrlShortner.Endpoint.broadcast("users_socket:#{user.id}", "disconnect", %{})
+  #     YourUrlEx.Endpoint.broadcast("users_socket:#{user.id}", "disconnect", %{})
   #
   # Returning `nil` makes this socket anonymous.
   def id(_socket), do: nil

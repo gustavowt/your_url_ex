@@ -1,7 +1,7 @@
-defmodule UrlShortner.ClickHistoryCreatorWorkerTest do
-  use UrlShortner.ConnCase, async: false
-  alias UrlShortner.Repo
-  alias UrlShortner.Url
+defmodule YourUrlEx.ClickHistoryCreatorWorkerTest do
+  use YourUrlEx.ConnCase, async: false
+  alias YourUrlEx.Repo
+  alias YourUrlEx.Url
 
   test "#perform, create a ClickHistory" do
     url = Repo.insert!(%Url{ original_url: "yahoo.com", url_hash: "AABBCC", clicks: 2 })
@@ -10,7 +10,7 @@ defmodule UrlShortner.ClickHistoryCreatorWorkerTest do
     device = Atom.to_string(:desktop)
     platform = "Mac Os"
 
-    { :ok, click_history } = UrlShortner.ClickHistoryCreatorWorker.perform(url.url_hash,
+    { :ok, click_history } = YourUrlEx.ClickHistoryCreatorWorker.perform(url.url_hash,
                                                                            platform,
                                                                            browser_name,
                                                                            browser_version,
