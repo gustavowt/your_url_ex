@@ -3,35 +3,34 @@ defmodule UrlShortner.PageController do
 
   alias UrlShortner.Url
   alias UrlShortner.UrlParserService
+  alias UrlShortner.UrlCollectorService
   alias Browser
 
   require Exq
 
   def show(conn, %{ "id" => url_hash }) do
-    url = Repo.get_by!(Url, url_hash: url_hash)
+    url = UrlCollectorService.get_url(url_hash)
 
-    case url do
-      nil ->
-        conn
-        |> put_status(:unprocessable_entity)
-      _ ->
+    if url do
+      scratch_url(url_hash)
+      collect_connection_info(conn, url_hash)
+      url_parsed = UrlShortner.UrlParserService.parse_url(url)
 
-        scratch_url(url_hash)
-        collect_connection_info(conn, url.id)
-        url_parsed = UrlShortner.UrlParserService.parse_url(url.original_url)
-
-        conn
-        |> redirect(external: url_parsed)
+      conn
+      |> redirect(external: url_parsed)
+    else
+      conn
+      |> send_resp(:not_found, "")
     end
   end
 
-  defp collect_connection_info(conn, url_id) do
+  defp collect_connection_info(conn, url_hash) do
     browser_name = Browser.name(conn)
     browser_version = Browser.full_version(conn)
     platform = Browser.full_platform_name(conn)
     device = Browser.device_type(conn) |> Atom.to_string
 
-    Exq.enqueue(Exq, "default", UrlShortner.ClickHistoryCreatorWorker, [url_id,
+    Exq.enqueue(Exq, "default", UrlShortner.ClickHistoryCreatorWorker, [url_hash,
                                                                         platform,
                                                                         browser_name,
                                                                         browser_version,

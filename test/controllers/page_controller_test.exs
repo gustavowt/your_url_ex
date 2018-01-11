@@ -24,8 +24,8 @@ defmodule UrlShortner.PageControllerTest do
   end
 
   test 'GET /:id renders page not found when id is not found', %{conn: conn} do
-    assert_error_sent 404, fn ->
-      get conn, "/AAVVCC"
-    end
+    conn = get(conn, "/AAVVCC")
+
+    assert conn.status == 404
   end
 end

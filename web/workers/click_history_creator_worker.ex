@@ -1,11 +1,14 @@
 defmodule UrlShortner.ClickHistoryCreatorWorker do
   alias UrlShortner.ClickHistory
   alias UrlShortner.Repo
+  alias UrlShortner.Url
 
   require Logger
 
-  def perform(url_id, platform, browser_name, browser_version, device) do
-    changeset = ClickHistory.changeset(%ClickHistory{}, %{ url_id: url_id,
+  def perform(url_hash, platform, browser_name, browser_version, device) do
+    url = Repo.get_by!(Url, url_hash: url_hash)
+
+    changeset = ClickHistory.changeset(%ClickHistory{}, %{ url_id: url.id,
                                                            platform: platform,
                                                            browser_name: browser_name,
                                                            browser_version: browser_version,

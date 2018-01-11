@@ -10,7 +10,7 @@ defmodule UrlShortner.ClickHistoryCreatorWorkerTest do
     device = Atom.to_string(:desktop)
     platform = "Mac Os"
 
-    { :ok, click_history } = UrlShortner.ClickHistoryCreatorWorker.perform(url.id,
+    { :ok, click_history } = UrlShortner.ClickHistoryCreatorWorker.perform(url.url_hash,
                                                                            platform,
                                                                            browser_name,
                                                                            browser_version,
