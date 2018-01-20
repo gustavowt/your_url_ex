@@ -11,10 +11,10 @@ defmodule YourUrlEx.ClickHistoryCreatorWorkerTest do
     platform = "Mac Os"
 
     { :ok, click_history } = YourUrlEx.ClickHistoryCreatorWorker.perform(url.url_hash,
-                                                                           platform,
-                                                                           browser_name,
-                                                                           browser_version,
-                                                                           device)
+                                                                         platform,
+                                                                         browser_name,
+                                                                         browser_version,
+                                                                         device)
 
     assert click_history
   end

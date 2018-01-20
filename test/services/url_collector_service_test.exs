@@ -12,7 +12,7 @@ defmodule YourUrlEx.UrlCollectorServiceTest do
   end
 
   test "#get_url, should load Url from Repo and set the cache" do
-    url = Repo.insert! %Url{ clicks: 20, original_url: "http://yahoo.com", url_hash: "AA223344" }
+    Repo.insert! %Url{ clicks: 20, original_url: "http://yahoo.com", url_hash: "AA223344" }
 
     assert UrlCollectorService.get_url("AA223344") == "http://yahoo.com"
     assert CacheService.get("AA223344") == "http://yahoo.com"

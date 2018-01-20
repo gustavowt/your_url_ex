@@ -23,6 +23,7 @@ defmodule YourUrlEx.Router do
     pipe_through :api
 
     resources "/urls", UrlController, except: [:edit, :update]
+    resources "/click_histories", ClickHistoryController, only: [:show]
   end
 
   # Other scopes may use custom stacks.
