@@ -43,7 +43,7 @@ $ curl -H "Content-Type: application/json" -H "token: {YourTokenHere}" -X GET ht
 {"data":[{"platform":"MacOS 10.13.2 High Sierra","inserted_at":"2018-01-20 19:30:25.442475","device":"desktop","browser_version":"63.0.3239.132","browser_name":"Chrome"},
          {"platform":"MacOS 10.13.2 High Sierra","inserted_at":"2018-01-20 19:30:09.079919","device":"desktop","browser_version":"63.0.3239.132","browser_name":"Chrome"},
          {"platform":"MacOS 10.13.2 High Sierra","inserted_at":"2018-01-20 19:22:34.586385","device":"desktop","browser_version":"63.0.3239.132","browser_name":"Chrome"}]}
-``
+```
 
 ## Learn more
 
