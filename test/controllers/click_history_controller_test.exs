@@ -3,9 +3,14 @@ defmodule YourUrlEx.ClickHistoryControllerTest do
 
   alias YourUrlEx.Url
   alias YourUrlEx.ClickHistory
+  @token Phoenix.Token.sign(YourUrlEx.Endpoint, System.get_env("AUTHORIZATION_TOKEN_SALT"), "DarthVader")
 
   setup %{conn: conn} do
-    {:ok, conn: put_req_header(conn, "accept", "application/json")}
+    conn = conn
+           |> put_req_header("accept", "application/json")
+           |> put_req_header("token", @token)
+
+    {:ok, conn: conn}
   end
 
   test "GET /:id render the history of URL", %{conn: conn} do
@@ -44,5 +49,14 @@ defmodule YourUrlEx.ClickHistoryControllerTest do
     conn = get conn, click_history_path(conn, :show, %ClickHistory{id: "AABBVV"})
 
     assert conn.status == 404
+  end
+
+  test "renders page not found when token is invalid", %{conn: conn} do
+    conn = conn |> put_req_header("token", "notAValidToken")
+
+    conn = get(conn, url_path(conn, :index))
+
+    assert conn.status == 401
+    assert conn.resp_body == "Not Authorised"
   end
 end

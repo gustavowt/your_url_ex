@@ -18,8 +18,8 @@ defmodule YourUrlEx.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {YourUrlEx, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :exq]]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :plug,
+                    :logger, :gettext, :phoenix_ecto, :postgrex, :exq]]
   end
 
   # Specifies which paths to compile per environment.
@@ -37,6 +37,7 @@ defmodule YourUrlEx.Mixfile do
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
+     {:plug, "~> 1.0"},
      {:cowboy, "~> 1.0"},
      {:uuid, "~> 1.1" },
      {:exq, "~> 0.9.1"},

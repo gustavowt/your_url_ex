@@ -4,9 +4,14 @@ defmodule YourUrlEx.UrlControllerTest do
   alias YourUrlEx.Url
   @valid_attrs %{ original_url: "http://google.com" }
   @invalid_attrs %{ original_url: nil }
+  @token Phoenix.Token.sign(YourUrlEx.Endpoint, System.get_env("AUTHORIZATION_TOKEN_SALT"), "DarthVader")
 
   setup %{conn: conn} do
-    {:ok, conn: put_req_header(conn, "accept", "application/json")}
+    conn = conn
+           |> put_req_header("accept", "application/json")
+           |> put_req_header("token", @token)
+
+    {:ok, conn: conn}
   end
 
   test "lists all entries on index", %{conn: conn} do
@@ -22,12 +27,6 @@ defmodule YourUrlEx.UrlControllerTest do
       "clicks" => url.clicks,
       "original_url" => url.original_url,
       "short_url" => "#{YourUrlEx.Endpoint.url}/#{url.url_hash}"}
-  end
-
-  test "renders page not found when id is nonexistent", %{conn: conn} do
-    assert_error_sent 404, fn ->
-      get conn, url_path(conn, :show, -1)
-    end
   end
 
   test "creates and renders resource when data is valid", %{conn: conn} do
@@ -46,5 +45,20 @@ defmodule YourUrlEx.UrlControllerTest do
     conn = delete conn, url_path(conn, :delete, %Url{ id: url.url_hash })
     assert response(conn, 204)
     refute Repo.get(Url, url.id)
+  end
+
+  test "renders page not found when id is nonexistent", %{conn: conn} do
+    assert_error_sent 404, fn ->
+      get conn, url_path(conn, :show, -1)
+    end
+  end
+
+  test "renders page not found when token is invalid", %{conn: conn} do
+    conn = conn |> put_req_header("token", "notAValidToken")
+
+    conn = get(conn, url_path(conn, :index))
+
+    assert conn.status == 401
+    assert conn.resp_body == "Not Authorised"
   end
 end

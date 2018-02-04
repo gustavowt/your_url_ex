@@ -11,6 +11,7 @@ defmodule YourUrlEx.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug YourUrlEx.AuthPlug, repo: YourUrlEx.Repo
   end
 
   scope "/", YourUrlEx do
