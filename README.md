@@ -19,9 +19,9 @@ $ cp .env_example .env
 $ source .env
 ```
 
-With you environment ready, open your elixir console and type:
+With you environment ready, open your elixir console (`$ iex -s mix`) and type:
 ```exs
-Phoenix.Token.sign(YourUrlEx.Endpoint, System.get_env("AUTHORIZATION_TOKEN_SALT"), "DarthVader")
+iex(1)> Phoenix.Token.sign(YourUrlEx.Endpoint, System.get_env("AUTHORIZATION_TOKEN_SALT"), "DarthVader")
 ```
 which "DarthVader" is the identification of token.
 
